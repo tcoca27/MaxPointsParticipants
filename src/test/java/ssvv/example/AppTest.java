@@ -47,7 +47,7 @@ public class AppTest
     {
         System.out.println("merge");
         int res = service.saveStudent("id", "nume", 188);
-        assertEquals(0, res);
+        assertEquals(1, res);
     }
 
     @Test
