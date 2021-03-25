@@ -45,7 +45,7 @@ public class AppTest
     @Test
     public void test1()
     {
-        int res = service.saveStudent("id", "nume", 188);
+        int res = service.saveStudent("id", "nume", 111);
         assertEquals(0, res);
     }
 
@@ -56,5 +56,66 @@ public class AppTest
         int res2 = service.saveStudent(null, "nume", 188);
         assertEquals(1, res1);
         assertEquals(1, res2);
+    }
+
+    @Test
+    public void test3()
+    {
+        int res1 = service.saveStudent("1", "", 188);
+        int res2 = service.saveStudent("1", null, 188);
+        assertEquals(1, res1);
+        assertEquals(1, res2);
+    }
+
+    @Test
+    public void test4()
+    {
+        int res1 = service.saveStudent("8", "n@me", 188);
+        assertEquals(1, res1);
+    }
+
+    @Test
+    public void test6()
+    {
+        int res1 = service.saveStudent("8", "nme", 110);
+        assertEquals(1, res1);
+    }
+
+    @Test
+    public void test7()
+    {
+        int res1 = service.saveStudent("8", "nme", 938);
+        assertEquals(1, res1);
+    }
+
+    @Test
+    public void test8()
+    {
+        int res1 = service.saveStudent("id", "nme", 200);
+        assertEquals(1, res1);
+    }
+
+    @Test
+    public void test_bva1() {
+        int res1 = service.saveStudent("id", "nme", -200);
+        assertEquals(1, res1);
+    }
+
+    @Test
+    public void test_bva4() {
+        int res1 = service.saveStudent("id8", "nme", 888);
+        assertEquals(0, res1);
+    }
+
+    @Test
+    public void test_bva5() {
+        int res1 = service.saveStudent("id", "nme", 938);
+        assertEquals(1, res1);
+    }
+
+    @Test
+    public void test_bva7() {
+        int res1 = service.saveStudent("7", "2d0R#T3$t@r", 200);
+        assertEquals(1, res1);
     }
 }
