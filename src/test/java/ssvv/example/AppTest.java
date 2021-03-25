@@ -45,14 +45,16 @@ public class AppTest
     @Test
     public void test1()
     {
-        System.out.println("merge");
         int res = service.saveStudent("id", "nume", 188);
-        assertEquals(1, res);
+        assertEquals(0, res);
     }
 
     @Test
     public void test2()
     {
-        assertFalse( false );
+        int res1 = service.saveStudent("", "nume", 188);
+        int res2 = service.saveStudent(null, "nume", 188);
+        assertEquals(1, res1);
+        assertEquals(1, res2);
     }
 }
