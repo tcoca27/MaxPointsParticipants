@@ -1,15 +1,6 @@
 package ssvv.example;
 
-import static org.junit.Assert.*;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.when;
-
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import ssvv.example.domain.Nota;
-import ssvv.example.domain.Student;
-import ssvv.example.domain.Tema;
 import ssvv.example.repository.NotaXMLRepository;
 import ssvv.example.repository.StudentXMLRepository;
 import ssvv.example.repository.TemaXMLRepository;
@@ -17,17 +8,21 @@ import ssvv.example.service.Service;
 import ssvv.example.validation.NotaValidator;
 import ssvv.example.validation.StudentValidator;
 import ssvv.example.validation.TemaValidator;
-import ssvv.example.validation.Validator;
+
+import java.util.Random;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
+public class AppTest {
     private Service service;
     private StudentXMLRepository studentXMLRepository;
     private TemaXMLRepository temaXMLRepository;
     private NotaXMLRepository notaXMLRepository;
+    private Random rnd;
+
     public AppTest() {
         StudentValidator studentValidator = new StudentValidator();
         TemaValidator temaValidator = new TemaValidator();
@@ -37,82 +32,98 @@ public class AppTest
         notaXMLRepository = new NotaXMLRepository(notaValidator, "note-text.xml");
         temaXMLRepository = new TemaXMLRepository(temaValidator, "teme-test.xml");
         service = new Service(studentXMLRepository, temaXMLRepository, notaXMLRepository);
+        rnd = new Random();
     }
 
     @Test
-    public void test1()
-    {
-        int res = service.saveStudent("id", "nume", 111);
+    public void test1() {
+        int res = service.saveStudent(getRandomNumberString(), getAlphaString(), 111);
         assertEquals(0, res);
     }
 
     @Test
-    public void test2()
-    {
-        int res1 = service.saveStudent("", "nume", 188);
-        int res2 = service.saveStudent(null, "nume", 188);
+    public void test2() {
+        int res1 = service.saveStudent("", getAlphaString(), 188);
+        int res2 = service.saveStudent(null, getAlphaString(), 188);
         assertEquals(1, res1);
         assertEquals(1, res2);
     }
 
     @Test
-    public void test3()
-    {
-        int res1 = service.saveStudent("1", "", 188);
-        int res2 = service.saveStudent("1", null, 188);
+    public void test3() {
+        int res1 = service.saveStudent(getRandomNumberString(), "", 188);
+        int res2 = service.saveStudent(getRandomNumberString(), null, 188);
         assertEquals(1, res1);
         assertEquals(1, res2);
     }
 
     @Test
-    public void test4()
-    {
-        int res1 = service.saveStudent("8", "n@me", 188);
+    public void test4() {
+        int res1 = service.saveStudent(getRandomNumberString(), "n@me", 188);
         assertEquals(1, res1);
     }
 
     @Test
-    public void test6()
-    {
-        int res1 = service.saveStudent("8", "nme", 110);
+    public void test6() {
+        int res1 = service.saveStudent(getRandomNumberString(), getAlphaString(), 110);
         assertEquals(1, res1);
     }
 
     @Test
-    public void test7()
-    {
-        int res1 = service.saveStudent("8", "nme", 938);
+    public void test7() {
+        int res1 = service.saveStudent(getRandomNumberString(), getAlphaString(), 938);
         assertEquals(1, res1);
     }
 
     @Test
-    public void test8()
-    {
-        int res1 = service.saveStudent("id", "nme", 200);
+    public void test8() {
+        int res1 = service.saveStudent("id", getAlphaString(), 200);
         assertEquals(1, res1);
     }
 
     @Test
     public void test_bva1() {
-        int res1 = service.saveStudent("id", "nme", -200);
+        int res1 = service.saveStudent(getRandomNumberString(), getAlphaString(), -200);
         assertEquals(1, res1);
     }
 
     @Test
     public void test_bva4() {
-        int res1 = service.saveStudent("id8", "nme", 888);
+        int res1 = service.saveStudent(getRandomNumberString(), getAlphaString(), 888);
         assertEquals(0, res1);
     }
 
     @Test
     public void test_bva5() {
-        int res1 = service.saveStudent("id", "nme", 938);
+        int res1 = service.saveStudent(getRandomNumberString(), getAlphaString(), 938);
         assertEquals(1, res1);
     }
 
     @Test
     public void test_bva7() {
-        int res1 = service.saveStudent("7", "2d0R#T3$t@r", 200);
+        int res1 = service.saveStudent(getRandomNumberString(), "2d0R#T3$t@r", 200);
         assertEquals(1, res1);
+    }
+
+    private String getRandomNumberString() {
+        int number = rnd.nextInt(999999);
+
+        return String.format("%06d", number);
+    }
+
+    private String getAlphaString() {
+
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "abcdefghijklmnopqrstuvxyz";
+
+        StringBuilder sb = new StringBuilder(8);
+
+        for (int i = 0; i < 8; i++) {
+
+            int index = (int) (AlphaNumericString.length() * Math.random());
+            sb.append(AlphaNumericString.charAt(index));
+        }
+
+        return sb.toString();
     }
 }

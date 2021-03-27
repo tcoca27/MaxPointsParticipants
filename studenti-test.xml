@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Entitati>
-<student ID="1">
-<Nume>Ana</Nume>
-<Grupa>221</Grupa>
+<student ID="863852">
+<Nume>nume</Nume>
+<Grupa>111</Grupa>
 </student>
-<student ID="2">
-<Nume>Maria</Nume>
-<Grupa>222</Grupa>
+<student ID="88">
+<Nume>nume</Nume>
+<Grupa>111</Grupa>
 </student>
-<student ID="4">
-<Nume>Ion</Nume>
-<Grupa>227</Grupa>
+<student ID="613382">
+<Nume>fyZmZYlp</Nume>
+<Grupa>111</Grupa>
 </student>
-<student ID="5">
-<Nume>opt</Nume>
-<Grupa>122</Grupa>
-</student>
-<student ID="7">
-<Nume>2d0R#T3$t@r</Nume>
-<Grupa>200</Grupa>
-</student>
-<student ID="8">
-<Nume>wet</Nume>
+<student ID="939476">
+<Nume>nme</Nume>
 <Grupa>888</Grupa>
 </student>
+<student ID="779791">
+<Nume>zDpDpQSK</Nume>
+<Grupa>111</Grupa>
+</student>
 <student ID="id">
+<Nume>nme</Nume>
+<Grupa>200</Grupa>
+</student>
+<student ID="761861">
+<Nume>RorhAbXa</Nume>
+<Grupa>111</Grupa>
+</student>
+<student ID="294162">
+<Nume>zBqhhBtl</Nume>
+<Grupa>888</Grupa>
+</student>
+<student ID="571497">
+<Nume>BjHFOrpS</Nume>
+<Grupa>888</Grupa>
+</student>
+<student ID="096415">
+<Nume>AJQZjJWA</Nume>
+<Grupa>111</Grupa>
+</student>
+<student ID="568640">
 <Nume>nume</Nume>
-<Grupa>188</Grupa>
+<Grupa>111</Grupa>
 </student>
 </Entitati>

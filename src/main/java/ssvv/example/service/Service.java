@@ -37,6 +37,9 @@ public class Service {
 
     public int saveStudent(String id, String nume, int grupa) {
         Student student = new Student(id, nume, grupa);
+        if (id != null && studentXmlRepo.findOne(id) != null) {
+            return 1;
+        }
         Student result = studentXmlRepo.save(student);
 
         if (result == null) {
