@@ -24,13 +24,10 @@ import ssvv.example.validation.Validator;
  */
 public class AppTest 
 {
-
     private Service service;
-
     private StudentXMLRepository studentXMLRepository;
     private TemaXMLRepository temaXMLRepository;
     private NotaXMLRepository notaXMLRepository;
-
     public AppTest() {
         StudentValidator studentValidator = new StudentValidator();
         TemaValidator temaValidator = new TemaValidator();
