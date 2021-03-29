@@ -126,4 +126,16 @@ public class AppTest {
 
         return sb.toString();
     }
+
+    @Test
+    public void test_wbt1() {
+        int result = service.saveTema(getRandomNumberString(), getAlphaString(), 8, 6);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void test_wbt2() {
+        int result = service.saveTema(getRandomNumberString(), getAlphaString(), 8, 9);
+        assertEquals(1, result);
+    }
 }
