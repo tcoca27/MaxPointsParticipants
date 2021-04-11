@@ -168,4 +168,14 @@ public class AppTest {
         assertEquals(1, resultBelow1);
         assertEquals(1, resultOver14);
     }
+
+    @Test
+    public void test_wbt6() {
+        String id = getRandomNumberString();
+        int result1 = service.saveTema(id, getAlphaString(), 8, 6);
+        int result2 = service.saveTema(id, getAlphaString(), 8, 6);
+
+        assertEquals(0, result1);
+        assertEquals(1, result2);
+    }
 }
