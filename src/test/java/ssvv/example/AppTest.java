@@ -135,7 +135,37 @@ public class AppTest {
 
     @Test
     public void test_wbt2() {
-        int result = service.saveTema(getRandomNumberString(), getAlphaString(), 8, 9);
-        assertEquals(1, result);
+        int resultInvalidLines = service.saveTema(getRandomNumberString(), getAlphaString(), 8, 9);
+        int resultBelow1 = service.saveTema(getRandomNumberString(), getAlphaString(), 0, 9);
+        int resultOver14 = service.saveTema(getRandomNumberString(), getAlphaString(), 15, 9);
+        assertEquals(1, resultInvalidLines);
+        assertEquals(1, resultBelow1);
+        assertEquals(1, resultOver14);
+    }
+
+    @Test
+    public void test_wbt3() {
+        int resultNull = service.saveTema(null, getAlphaString(), 8, 6);
+        int resultEmpty = service.saveTema("", getAlphaString(), 8, 6);
+        assertEquals(1, resultNull);
+        assertEquals(1, resultEmpty);
+    }
+
+    @Test
+    public void test_wbt4() {
+        int resultNull = service.saveTema(getRandomNumberString(), "", 8, 6);
+        int resultEmpty = service.saveTema(getRandomNumberString(), null, 8, 6);
+        assertEquals(1, resultNull);
+        assertEquals(1, resultEmpty);
+    }
+
+    @Test
+    public void test_wbt5() {
+        int resultInvalidLines = service.saveTema(getRandomNumberString(), getAlphaString(), 8, 9);
+        int resultBelow1 = service.saveTema(getRandomNumberString(), getAlphaString(), 8, 0);
+        int resultOver14 = service.saveTema(getRandomNumberString(), getAlphaString(), 8, 15);
+        assertEquals(1, resultInvalidLines);
+        assertEquals(1, resultBelow1);
+        assertEquals(1, resultOver14);
     }
 }
