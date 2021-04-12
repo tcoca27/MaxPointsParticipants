@@ -77,7 +77,7 @@ public class AppTest {
 
     @Test
     public void test8() {
-        int res1 = service.saveStudent("id", getAlphaString(), 200);
+        int res1 = service.saveStudent("88", getAlphaString(), 200);
         assertEquals(1, res1);
     }
 
