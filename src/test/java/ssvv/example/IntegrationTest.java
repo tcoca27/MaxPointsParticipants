@@ -52,7 +52,7 @@ public class IntegrationTest {
 
     @Test
     public void testAddGrade() {
-        int result = service.saveNota("1", "1", 8, 7, "bv");
+        int result = service.saveNota("88", "5", 8, 7, "bv");
         assertEquals(0, result);
     }
 
